@@ -1,4 +1,4 @@
-# 🚀 CUDA Programming Examples & Practice
+# 🚀 PyTorch Programming Examples & Practice
 
 This repository collects my personal hands-on experiments and implementations related to **PyTorch** using:
 
