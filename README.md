@@ -13,8 +13,9 @@ The goal is to deepen understanding of machine learning, deep learning, and real
 ```bash
 PyTorch/
 │
-├── Image Segmentation/                 # Image Segmentation with PyTorch
-│   ├──                                 # 
+├── Image Segmentation with NN/         # Image Segmentation with PyTorch
+│   ├── nn_module.py                    # It's used to train the model
+│   └── nn_module_test.py               # It's used to test the model
 ```
 
 ## 📌 Goals
