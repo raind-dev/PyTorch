@@ -29,7 +29,7 @@ The script normalizes and resizes all images and labels automatically and conver
 #### 1. Clone the repo
 ```bash
 git clone https://github.com/raind-dev/PyTorch.git
-cd Image Segmentation with Simple Net
+cd Image Segmentation with U-Net
 ```
 #### 2. Prepare dataset
 Place your MR images and mask maps under the Data/Training Set/ folder following the structure above.
@@ -52,18 +52,18 @@ python nn_module_test.py
 ## 🧠 Model Architecture
 The model is a custom SimpleSegNet, consisting of:
 
-Encoder: 3 convolution + max-pooling blocks
+Encoder: L1 ~ L4 U-Net architecture. (two convolution layers and two LeakyRelu layers per dimension)
 
-Decoder: 3 transpose convolution layers to restore resolution
+Decoder: L1 ~ L4 U-Net architecture.
 
-Activation: ReLU throughout, final layer without activation (use with BCEWithLogitsLoss)
+Activation: LeakyReLU throughout, final layer without activation (use with BCEWithLogitsLoss)
 
 ## 🎯 Training Details
 Loss Function: BCEWithLogitsLoss
 
 Optimizer: Adam with learning rate 0.01
 
-Epochs: 30
+Epochs: 10
 
 Input Shape: (1, 256, 256)
 
@@ -83,7 +83,7 @@ The trained model is saved as a .pth file:
 torch.save(model.state_dict(), "models/model_v1.pth")
 
 # Load model
-model = SimpleSegNet()
+model = SegUNetL1() ~ SegUNetL4()
 model.load_state_dict(torch.load("models/model_v1.pth"))
 ```
 
